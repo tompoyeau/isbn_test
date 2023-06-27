@@ -9,7 +9,7 @@ public class FormatTest {
         Integer id = 1;
         String label = "Poche";
 
-        Format aFormat = new Book(id, label);
+        Format aFormat = new Format(id, label);
         assertEquals(aFormat.getId(), id);
         assertEquals(aFormat.getLabel(), label);
     }
