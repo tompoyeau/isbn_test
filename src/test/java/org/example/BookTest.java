@@ -10,7 +10,7 @@ public class BookTest {
         String titre = "Mon title";
         String auteur = "Mon auteur";
         String editeur = "Mon editeur";
-        String format = "Poche";
+        Format format = Format.POCHE;
         boolean disponible = true;
 
         Book aBook = new Book(isbn,titre, auteur, editeur, format, disponible);
