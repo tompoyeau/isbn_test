@@ -5,10 +5,10 @@ public class Book {
     private String titre;
     private String auteur;
     private String editeur;
-    private String format;
+    private Format format;
     private Boolean disponible;
 
-    public Book(Integer isbn, String titre, String auteur, String editeur, String format, Boolean disponible) {
+    public Book(Integer isbn, String titre, String auteur, String editeur, Format format, Boolean disponible) {
         Isbn = isbn;
         this.titre = titre;
         this.auteur = auteur;
@@ -49,11 +49,11 @@ public class Book {
         this.editeur = editeur;
     }
 
-    public String getFormat() {
+    public Format getFormat() {
         return format;
     }
 
-    public void setFormat(String format) {
+    public void setFormat(Format format) {
         this.format = format;
     }
 
