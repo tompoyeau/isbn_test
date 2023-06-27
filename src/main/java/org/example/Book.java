@@ -1,14 +1,14 @@
 package org.example;
 
 public class Book {
-    private Integer Isbn;
+    private String Isbn;
     private String titre;
     private String auteur;
     private String editeur;
     private Format format;
     private Boolean disponible;
 
-    public Book(Integer isbn, String titre, String auteur, String editeur, Format format, Boolean disponible) {
+    public Book(String isbn, String titre, String auteur, String editeur, Format format, Boolean disponible) {
         Isbn = isbn;
         this.titre = titre;
         this.auteur = auteur;
@@ -17,11 +17,11 @@ public class Book {
         this.disponible = disponible;
     }
 
-    public Integer getIsbn() {
+    public String getIsbn() {
         return Isbn;
     }
 
-    public void setIsbn(Integer isbn) {
+    public void setIsbn(String isbn) {
         Isbn = isbn;
     }
 
