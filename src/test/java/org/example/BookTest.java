@@ -9,11 +9,14 @@ import static org.mockito.Mockito.when;
 
 public class BookTest {
     BookService mockDbService;
+    BookService mockWebService;
     BookManager manager;
     @BeforeEach
     public void initMocks() {
-        mockDbService = mock(BookDataService.class);
+        mockDbService = mock(BookService.class);
+        mockWebService = mock(BookService.class);
         manager = new BookManager();
+        manager.setWebBookService(mockWebService);
         manager.setDatabaseBookService(mockDbService);
     }
 
@@ -36,13 +39,18 @@ public class BookTest {
     }
 
     @Test
-    public void GetBookTitleByISBN() {
+    public void GetBookTitleByISBNTest() {
         String isbn = "123456789";
         when(mockDbService.getBookData(isbn)).thenReturn(new Book(isbn,"Blanche Neige", "Filipe Canelas", "Disney",Format.GRAND_FORMAT,true));
 
         String expectedTitle = "Blanche Neige";
-        String title = manager.getBookTitleByIsbn(isbn);
+        String title = manager.getBookTitleByISBN(isbn);
         assertEquals(expectedTitle, title);
+    }
+
+    @Test
+    public void throwExceptionWhenBookNotFound() {
+        assertThrows(BookNotFoundException.class, () -> manager.getBookTitleByISBN("1225215"));
     }
 
 }
